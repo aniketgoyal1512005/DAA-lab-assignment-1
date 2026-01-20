@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int arr[] = {-2,-5,6,-2,-3,1,5,-6};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int sum = 0;
+    int max = 0;
+    int start = 0;
+    int end = 0;
+    for(int i = 0;i<n;i++){
+        if(arr[i]>0){
+            int start  = i;
+            break;
+        }
+    }
+    for(int j = n-1;j>=0;j--){
+        if(arr[j]>0){
+            end = j;
+            break;
+        }
+    }
+    for(int k = start;k<=end;k++){
+        sum += arr[k];
+        if(sum<0){
+            sum = 0;
+        }
+        if(max<sum){
+            max = sum;
+        }
+    }
+    cout<<max<<endl;
+    return 0;
+}
